@@ -14,12 +14,15 @@ excerpts are background context, not paper abstracts or input to that matrix.
 ## Connect Claude Code
 
 Start with [Deep Researcher installed](../README.md#quick-start) and
-[Claude Code installed and signed in](https://github.com/anthropics/claude-code#installation).
+[Claude Code installed and signed in](https://github.com/anthropics/claude-code#get-started).
 Claude Code has its own account and usage requirements; the anonymous Parallel
 endpoint does not provide model access.
 
 From the `deep-researcher` directory, register the HTTP server for your local
 Claude Code project configuration:
+
+If a server named `parallel-search` is already configured, inspect it with
+`claude mcp get parallel-search` before making changes.
 
 ```bash
 claude mcp add --transport http --scope local parallel-search https://search.parallel.ai/mcp \
@@ -31,8 +34,7 @@ claude
 Inside Claude Code, run `/mcp` to check the connection. The server exposes
 `web_search` for finding sources and `web_fetch` for reading selected URLs. Allow
 the tools when prompted. If they do not appear, restart Claude Code and check
-`/mcp` again. If a server named `parallel-search` is already configured, inspect
-it with `claude mcp get parallel-search` before making changes.
+`/mcp` again.
 
 These requests send your search terms and selected URLs to Parallel. Claude Code
 also processes the conversation with its configured model. Use public research
